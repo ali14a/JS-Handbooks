@@ -1,0 +1,262 @@
+1. Question: Write a function that reverses a given string.
+function reverseString(str) {
+  return str.split('').reverse().join('');
+}
+console.log(reverseString('Hello'));
+// Output: 'olleH'
+-----------------------------------------------------------------
+2.Question: Write a function that finds the longest word in a sentence.
+function findLongestWord(sentence) {
+  const words = sentence.split(' ');
+  let longestWord = '';
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > longestWord.length) {
+      longestWord = words[i];
+    }
+  }
+  return longestWord;
+}
+console.log(findLongestWord('The quick brown fox jumps over the lazy dog'));
+// Output: 'quick'
+-----------------------------------------------------------------
+3.Question: Write a function that removes duplicates from an array.
+function removeDuplicates(arr) {
+  return [...new Set(arr)];
+}
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
+// Output: [1, 2, 3, 4, 5]
+-----------------------------------------------------------------
+4. Question: Given an array containing numbers from 1 to N, with one number missing, find the missing number.
+function findMissingNumber(arr) {
+  const n = arr.length + 1;(added 1 because that number is missing)
+  const Expectedsum = (n * (n + 1)) / 2;
+  const ActualarrSum = arr.reduce((acc, curr) => acc + curr, 0);
+  return Expectedsum - ActualarrSum;
+}
+console.log(findMissingNumber([1, 2, 3, 5]));
+// Output: 4
+-----------------------------------------------------------------
+5. Question: Write a function that checks if a given string is a palindrome.
+function isPalindrome(str) {
+  const reversedStr = str.split('').reverse().join('');
+  return str === reversedStr;
+}
+console.log(isPalindrome('level'));
+// Output: true
+-----------------------------------------------------------------
+6. Question: What will be the output of the following code?
+for (var i = 1; i <= 5; i++) {
+  setTimeout(function() {
+    console.log(i);
+  }, 1000);
+}
+Answer: The output will be five instances of the number 6.
+-----------------------------------------------------------------
+7.Question: What will be the output of the following code?
+for (var i = 1; i < 5; i++) {
+  setTimeout(function() {
+    console.log(i);
+  }, 1000);
+}
+Answer: The output will be five instances of the number 5.
+-----------------------------------------------------------------
+8. How to empty an array in javascript?
+  1. array=[]
+  2. array.length=0
+  3. array.splice(0, arr.length)
+  4. while(array.length){
+    array.pop()
+    }
+-----------------------------------------------------------------
+9. How would you check if a number is a integer or decimal?
+   number % 1 === 0 //true
+-----------------------------------------------------------------
+10. Write a "mul"function which will properly when invoked as below syntax.
+console.log(mul(2)(3)(4)); // output :: 24
+console.log(mul(4)(3)(4))/// output :: 48
+function mul(a){
+  return function (b){
+    return function (c){
+      return a*b*c
+    }
+  }
+}
+Here mul function accept the first argument and return anonymous
+function which take the second parameter and return anonymous function
+which take the third parameter and return multiplication of arguments
+which is being passed in successive
+-----------------------------------------------------------------
+11. Class Component in Reactjs:
+    1. We can initiatise the state inside a constructor function.
+    2. Super() method or function is used to execute the parent class constructor.
+    3. The constructor is called during the component creation and before mounting.
+    4. The constructor is also used to bind the event handlers.
+    5. this.state scope is not in any of the block, it's inside class component.
+Link: https://www.youtube.com/watch?v=JiO0dXP3YLA&list=PLsuIm95J7Lco58PVaz6c1ssCwHy8GaxHa&index=3
+-----------------------------------------------------------------
+12. Why is it require to have a callback function at onClick in Reactjs, such as, onClick={()=>this.increment()}
+   1. If we call like onClick={this.increment()}, then it will not wait for any user's action like click. As soon as page refresh it also get render.Then it will be a infinite loop.
+   2. In lexical scopping we need to use the arrow function(callback function) at OnClick, otherwise it will give an error that setState() is undefined.
+   3. There are 2 ways to create a arrow function while onClick.
+      3.a onClick={()=> handleClick()} OR
+      3.b increment = () => {}
+   4. If we don't want to use the callaback(Arrow function then we can use conventional way i.e, with .bind() inside the constructor.
+   5. setState is a asyn so immediately not getting a updated value.
+   6. second parameneter of the setState contain the updated value, which we can take with arrow function, i.e called a callback function.
+-----------------------------------------------------------------
+13. Functional Component in Reactjs:
+    1. In Functional Component, state introduced by Hooks.
+    2. Hooks are used to state and the life cycle methods in a functional component.
+    3. In functional component, we have multiple states, but in class component we have single state in which the one object contain multiple values.
+-----------------------------------------------------------------
+14. What is state and Props ?
+    1. State is an object where you store the property that belongs to the component.
+    2. Props are the properties which are passed to the components externally.
+    3. "Props" contains all the props value so we can directly destructure at the function firts line like
+       const MyComponent = ({name, age}) =>{}
+       or 
+       const MyComponent = (props) =>{
+         const {name, age} = props;
+       }
+    4. In class based component, we can access like {this.props.name}.
+    5. To access the props in class based component then we need to pass the props at constructor() and super() method.
+    6. Stae is inside the component, while props are outside the component.
+    7. With Props, we are making the components reusable.
+    8. State controls the component internally, while props do externally.
+    9. State can be change inside the component, but props can't change/modified at inside the component.
+-----------------------------------------------------------------
+15. What's getSnapshotBeforeUpdate()?
+    This method is invoked just before the DOM is being rendered. It is used to store the previous values of the state after the DOM is updated.
+-----------------------------------------------------------------
+16. Can we use setstate in componentWillUnmount()?
+    1. No, because the component will never be re-rendered. Once a component instance is unmounted, it will never be mounted again.
+-----------------------------------------------------------------
+17. What's Error Boundaries.
+    1. If we have an error at one part then it should not break the whole app.
+    2. It's a React Component that catches JS errors anywhere in their child component tree,
+       log those errors and display a fallback UI instead of the component tree that crashed.
+    3. It do not catch an error for:
+       - Event handlers
+       - Asyn Code(setTimeout)
+       - SSR
+       - Error thrown in the error bounary itself(rather than it's children)
+    4. Two methods:
+       - getDerivedStateFromError
+       - ComponentDidCatch
+    5. Will receive exceptions in the development mode only, not an prod.
+----------------------------------------------------------------
+18. 4 ways of styling:
+    - Inline styling
+    - External styling
+    - Style component
+    - Module styling- This will help when we have a same class name for more than 2 classes then it will not allow to override the class properties to all the classes.
+----------------------------------------------------------------
+19. 
+    - Package.json : Its a json file which contains project dependencies means those packages are required, where we are maintaing the versions. This is used by the npm(package manager) and it
+      will get details of dependencies and its version.
+    - npm : It manage the packages and its dependencies. These dependencies are storing at node_module folder.
+    - example==> 
+         "version": "carotsymbo2.1.0" means it will allow to download everything before 3.1.0(major dependencies)
+          "version": "~2.1.0" means it will allow to download everything before 2.2.0(minor dependencies)
+     - package.lock.json- actual project deendencies with its version in it.
+     - index.html- It has the root element of the project. Adiv that render our application.
+     - index.js- It access the root element and render the whole app.
+----------------------------------------------------------------
+20. What's createRoot?
+   - It create a root to Display the React Components inside a browser DOM node. 
+   - ReactDOM: Its a package to manage efficiently html. It provide many methods to manage the DOM.
+   - Babel: It transpile or compiel the code into js code.
+   - Module Bundler: We need an application which make the bundle the reactjs code, so that we will get production reay build, code minified, create a hierarchy.  Like Webpack or parcel, 
+   - JSX- ease for write a reactjs code
+   - dependencies vs dev dependencies: Which are require to run an application at runtime vs when it require at Devlopment
+   - what's bundle.js ?- This whill be production bundle.
+   - Scripts: Used to run an application
+   - npx vs npm ?: To execute the process vs to install the dependencies
+   - "serve" used in development
+   - react is library, not framewoek why ?
+----------------------------------------------------------------
+21. What's react-router dom ?
+   - React is SPA. how ?- We ahve a single page where we are changing the content only.
+   - React router don is used for the navigation between urls.
+   - Link vs NavLink
+   - Nested and Dynamic Route?
+----------------------------------------------------------------
+22. HOC ?
+  - Usage:
+  1. Code Sharing
+  2. State management
+  3. Caching or Memoization
+  4. Styling
+  5. Conditional rendering
+  - React time example:
+  1. React.memo
+  2. withRouter
+  3. Connect()
+  - Drawbacks:
+  1. Prop Colliasion
+     - We can fix with Render Props or using Custom Hooks.
+  2. We can wrap with muktiple HOC so difficult to debug it
+----------------------------------------------------------------
+23. Memoisation:
+  - It means caching.
+  - using closure, we can implement it.
+  - React.memo- its a HOC, wrapper component. If we are passing the same props again then it won't calculate it, rerender the previous result. It's used in functional component.
+  - In class componenet, we have shouldCoponentUpdate() and Pure component for this.
+  - useMemo- Its hook, it will call inside a componenet and check whether have we calculated/store the value. When it rerender again, with the same arguments are same or not, if same then won't recalculate it.
+---------------------------------------------------------------
+24. useCallback:
+  - When we have 2 objects/arrays, we are comparing by memory reference, not by the values.
+  - Don't use useCallback: when we are not passing through the data.
+---------------------------------------------------------------
+25 Interviewer: What're the React 18 new features? https://react.dev/blog/2022/03/29/react-v18#new-suspense-features
+
+These examples would definitely boost your explanation during interview. :
+
+1. Automatic Batching: Automatic batching is like waiting until you have a bunch of tasks to do before doing them all at once, instead of doing each task immediately as it comes up.
+Example: 𝑰𝒎𝒂𝒈𝒊𝒏𝒆 𝒚𝒐𝒖'𝒓𝒆 𝒃𝒂𝒌𝒊𝒏𝒈 𝒄𝒐𝒐𝒌𝒊𝒆𝒔 𝒊𝒏 𝒚𝒐𝒖𝒓 𝒌𝒊𝒕𝒄𝒉𝒆𝒏. 𝑰𝒏𝒔𝒕𝒆𝒂𝒅 𝒐𝒇 𝒕𝒖𝒓𝒏𝒊𝒏𝒈 𝒐𝒏 𝒕𝒉𝒆 𝒐𝒗𝒆𝒏 𝒆𝒗𝒆𝒓𝒚 𝒕𝒊𝒎𝒆 𝒚𝒐𝒖 𝒇𝒊𝒏𝒊𝒔𝒉 𝒑𝒓𝒆𝒑𝒂𝒓𝒊𝒏𝒈 𝒐𝒏𝒆 𝒄𝒐𝒐𝒌𝒊𝒆, 𝒚𝒐𝒖 𝒘𝒂𝒊𝒕 𝒖𝒏𝒕𝒊𝒍 𝒚𝒐𝒖'𝒗𝒆 𝒑𝒓𝒆𝒑𝒂𝒓𝒆𝒅 𝒂 𝒘𝒉𝒐𝒍𝒆 𝒃𝒂𝒕𝒄𝒉 𝒐𝒇 𝒄𝒐𝒐𝒌𝒊𝒆 𝒅𝒐𝒖𝒈𝒉. 𝑻𝒉𝒆𝒏, 𝒚𝒐𝒖 𝒕𝒖𝒓𝒏 𝒐𝒏 𝒕𝒉𝒆 𝒐𝒗𝒆𝒏 𝒂𝒏𝒅 𝒃𝒂𝒌𝒆 𝒂𝒍𝒍 𝒕𝒉𝒆 𝒄𝒐𝒐𝒌𝒊𝒆𝒔 𝒂𝒕 𝒐𝒏𝒄𝒆.
+
+2. Concurrent rendering: It is like being an efficient cook in your kitchen. When React renders a component tree, it may have multiple tasks to perform, such as updating the UI, handling user interactions, and fetching data from an API. With concurrent rendering, React can work on these tasks concurrently, switching between them as needed to make progress on all fronts.
+Example: 𝑰𝒎𝒂𝒈𝒊𝒏𝒆 𝒚𝒐𝒖'𝒓𝒆 𝒄𝒐𝒐𝒌𝒊𝒏𝒈 𝒅𝒊𝒏𝒏𝒆𝒓 𝒊𝒏 𝒚𝒐𝒖𝒓 𝒌𝒊𝒕𝒄𝒉𝒆𝒏. 𝒀𝒐𝒖 𝒉𝒂𝒗𝒆 𝒎𝒖𝒍𝒕𝒊𝒑𝒍𝒆 𝒅𝒊𝒔𝒉𝒆𝒔 𝒕𝒐 𝒑𝒓𝒆𝒑𝒂𝒓𝒆, 𝒃𝒖𝒕 𝒚𝒐𝒖 𝒄𝒂𝒏 𝒐𝒏𝒍𝒚 𝒖𝒔𝒆 𝒐𝒏𝒆 𝒃𝒖𝒓𝒏𝒆𝒓 𝒂𝒕 𝒂 𝒕𝒊𝒎𝒆. 𝑯𝒐𝒘𝒆𝒗𝒆𝒓, 𝒚𝒐𝒖'𝒓𝒆 𝒂𝒏 𝒆𝒇𝒇𝒊𝒄𝒊𝒆𝒏𝒕 𝒄𝒐𝒐𝒌, 𝒔𝒐 𝒚𝒐𝒖 𝒔𝒕𝒂𝒓𝒕 𝒃𝒐𝒊𝒍𝒊𝒏𝒈 𝒘𝒂𝒕𝒆𝒓 𝒇𝒐𝒓 𝒑𝒂𝒔𝒕𝒂 𝒘𝒉𝒊𝒍𝒆 𝒄𝒉𝒐𝒑𝒑𝒊𝒏𝒈 𝒗𝒆𝒈𝒆𝒕𝒂𝒃𝒍𝒆𝒔 𝒇𝒐𝒓 𝒔𝒂𝒍𝒂𝒅. 𝒀𝒐𝒖 𝒔𝒘𝒊𝒕𝒄𝒉 𝒃𝒆𝒕𝒘𝒆𝒆𝒏 𝒕𝒂𝒔𝒌𝒔 𝒂𝒔 𝒏𝒆𝒆𝒅𝒆𝒅, 𝒎𝒂𝒌𝒊𝒏𝒈 𝒑𝒓𝒐𝒈𝒓𝒆𝒔𝒔 𝒐𝒏 𝒎𝒖𝒍𝒕𝒊𝒑𝒍𝒆 𝒅𝒊𝒔𝒉𝒆𝒔 𝒄𝒐𝒏𝒄𝒖𝒓𝒓𝒆𝒏𝒕𝒍𝒚, 𝒆𝒗𝒆𝒏 𝒕𝒉𝒐𝒖𝒈𝒉 𝒚𝒐𝒖'𝒓𝒆 𝒐𝒏𝒍𝒚 𝒂𝒄𝒕𝒊𝒗𝒆𝒍𝒚 𝒘𝒐𝒓𝒌𝒊𝒏𝒈 𝒐𝒏 𝒐𝒏𝒆 𝒕𝒂𝒔𝒌 𝒂𝒕 𝒂 𝒕𝒊𝒎𝒆.
+
+3. Transition: The transition feature in React allows you to animate changes in the UI when certain conditions are met, such as when a component mounts or updates. It provides a smooth and visually appealing way to transition between different states of your application.
+Example: 𝑰𝒎𝒂𝒈𝒊𝒏𝒆 𝒚𝒐𝒖 𝒉𝒂𝒗𝒆 𝒂 𝒄𝒐𝒎𝒑𝒐𝒏𝒆𝒏𝒕 𝒕𝒉𝒂𝒕 𝒅𝒊𝒔𝒑𝒍𝒂𝒚𝒔 𝒂 𝒎𝒐𝒅𝒂𝒍 𝒅𝒊𝒂𝒍𝒐𝒈. 𝑾𝒉𝒆𝒏 𝒕𝒉𝒆 𝒎𝒐𝒅𝒂𝒍 𝒊𝒔 𝒐𝒑𝒆𝒏𝒆𝒅 𝒐𝒓 𝒄𝒍𝒐𝒔𝒆𝒅, 𝒚𝒐𝒖 𝒘𝒂𝒏𝒕 𝒊𝒕 𝒕𝒐 𝒔𝒎𝒐𝒐𝒕𝒉𝒍𝒚 𝒇𝒂𝒅𝒆 𝒊𝒏 𝒐𝒓 𝒐𝒖𝒕, 𝒓𝒂𝒕𝒉𝒆𝒓 𝒕𝒉𝒂𝒏 𝒂𝒃𝒓𝒖𝒑𝒕𝒍𝒚 𝒂𝒑𝒑𝒆𝒂𝒓𝒊𝒏𝒈 𝒐𝒓 𝒅𝒊𝒔𝒂𝒑𝒑𝒆𝒂𝒓𝒊𝒏𝒈.
+
+4. Suspense: Imagine you're building a webpage, and part of it relies on fetching some data from an API before it can be shown to the user. Now, traditionally, in React, handling this kind of asynchronous data loading has been a bit clunky. You might have used loading spinners or conditional rendering to manage the waiting time. But with Suspense, React gives us a more elegant solution. It's like telling React, "Hey, hold up for a sec while I fetch this data." Suspense allows components to suspend rendering while waiting for some asynchronous operation, like data fetching or code splitting, to complete.
+Example: Let's say you have a social media feed in your app, and each post includes comments from other users. Instead of waiting for all the comments to load before showing the post, you can use Suspense. This means the post will render right away, and Suspense will take care of loading the comments in the background.
+---------------------------------------------------------------
+26. 𝐈𝐦𝐦𝐮𝐭𝐚𝐛𝐥𝐞 𝐢𝐧 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭: const vs Object.freeze() Explained!
+
+Here is my answer...
+
+☀ const: When declare a variable with const, the variable cannot be reassigned to a new value after its initial assignment.
+It applies to bindings(variables). 
+It create an immutable binding.
+It can't assign a new value to the binding.
+
+Example:
+You put a diamond ring in the safe deposit box (the diamond ring represents an object with properties). Even though you can't replace the diamond with another item (because the box is locked with a const key), you can still polish or clean the diamond to improve its appearance (changing the properties of the object).
+
+☀ Object.freeze(): Object.freeze() making the object properties immutable. Once an object is frozen using Object.freeze(), you can't add, delete, or modify its properties.
+It works on object values.
+It create an immutable object.
+It can't change its properties.
+
+Example:
+You put a diamond ring in the safe deposit box and lock it with a special lock that prevents any changes. Now, not only can you not replace the diamond or change its appearance, but you also can't add a necklace to the box or take the diamond out to wear it.    
+-----------------------------------------------------------------
+Can we commit 🏹 .env file at GitHub ?
+
+The .env files in a React project are environment files that provide a way to store configuration settings and variables that should not be committed to the source code. These files are used to set environment variables for your application at build time.
+
+The .env file is a file that contains key-value pairs. The key-value pairs defined in the .env file can be accessed in your React application by prefixing the key with REACT_APP_. For example, if you have a variable called API_URL in your .env file, you can access it in your React application as process.env.REACT_APP_API_URL.
+
+Note: React only exposes variables prefixed with REACT_APP_ to the JavaScript code. This is a security measure to prevent accidentally exposing sensitive information such as API keys.
+
+Here's an example of what a .env file could look like:
+REACT_APP_API_URL=https://api.example.com
+REACT_APP_API_KEY=myapikey
+In your React component or script, you would access these values like so:
+const apiUrl = process.env.REACT_APP_API_URL;
+const apiKey = process.env.REACT_APP_API_KEY;
+
+Remember, the .env file should not be used to store sensitive information like secrets or passwords, as these files are generally included in the version control system and can be accessed by anyone with access to the repository.
