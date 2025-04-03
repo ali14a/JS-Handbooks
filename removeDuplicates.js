@@ -1,22 +1,22 @@
 //list fibonnaci
 function listFibonacci(n) {
-  var arr = [0, 1]
-  for (let i = 1; i < n; i++){
-    arr.push(arr[i] + arr[i - 1])
+  var arr = [0, 1];
+  for (let i = 1; i < n; i++) {
+    arr.push(arr[i] + arr[i - 1]);
   }
-  return arr
+  return arr;
 }
-console.log(listFibonacci(5))
+console.log(listFibonacci(5));
 function fact(n) {
   if (n === 0) {
-    return false
-  } 
+    return false;
+  }
   if (n === 1) {
-    return true
-  } 
-  return n*fib(n-1)
+    return true;
+  }
+  return n * fib(n - 1);
 }
-console.log(fib(5))
+// console.log(fib(5));
 //use of label:
 // var i, j;
 
@@ -107,15 +107,6 @@ function longestWord() {
     }
   }
   return longestWord1;
-  //Method 1
-  let stringArr = string.split(" ");
-  let longestWord = stringArr[0];
-  for (let i = 1; i < stringArr.length; i++) {
-    if (stringArr[i].length > longestWord.length) {
-      longestWord = stringArr[i];
-    }
-  }
-  return longestWord;
 }
 
 //Code 11: Check Palindrome
@@ -143,16 +134,6 @@ function anagram() {
     a.toLowerCase().split("").sort().join("") ===
     b.toLowerCase().split("").sort().join("")
   );
-  //Method 2
-  if (a.length !== b.length) {
-    return false;
-  }
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] !== b[b.length - 1 - i]) {
-      return false;
-    }
-  }
-  return true;
 }
 console.log(anagram());
 //Code 7: Find factorial of user input number
@@ -231,3 +212,19 @@ export function removeDuplicateCharacters() {
   console.log(uniqueStringArr.join(""));
   return uniqueStringArr.join("");
 }
+
+export function double() {
+  const numbers = [1, 2, 3, 4, 5];
+
+  const doubleNumbersAll = Promise.all(
+    numbers.map((number) => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(number * 2);
+        }, 10000);
+      }).then((result) => result);
+    })
+  );
+  console.log(doubleNumbersAll.then((result) => console.log(result)));
+}
+double();
