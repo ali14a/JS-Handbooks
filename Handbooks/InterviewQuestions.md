@@ -3100,3 +3100,742 @@ function sendDrawEvent(data) {
 - Optimize performance for large sessions.
 
 </details>
+
+## Version Control & Tools
+
+### What is Git, and why is it used?
+
+<details>
+<summary>View answer</summary>
+
+Git is a distributed version control system used to track changes in source code during software development. It allows multiple developers to collaborate on a project efficiently.
+
+#### **Key Features**:
+
+1. **Distributed**: Every developer has a full copy of the repository.
+2. **Branching and Merging**: Enables developers to work on features independently and merge changes later.
+3. **Version History**: Tracks every change made to the codebase.
+4. **Collaboration**: Facilitates teamwork through tools like GitHub, GitLab, and Bitbucket.
+
+#### **Common Commands**:
+
+- `git init`: Initialize a new Git repository.
+- `git clone`: Clone an existing repository.
+- `git add`: Stage changes for commit.
+- `git commit`: Save changes to the repository.
+- `git push`: Upload changes to a remote repository.
+- `git pull`: Fetch and merge changes from a remote repository.
+
+</details>
+
+### What is the difference between Git and GitHub?
+
+<details>
+<summary>View answer</summary>
+
+#### **Git**:
+
+- A version control system used to track changes in code.
+- Works locally and does not require an internet connection.
+
+#### **GitHub**:
+
+- A cloud-based platform for hosting Git repositories.
+- Provides collaboration tools like pull requests, issue tracking, and CI/CD integration.
+
+#### **Key Differences**:
+
+| Feature      | Git                          | GitHub                      |
+| ------------ | ---------------------------- | --------------------------- |
+| **Type**     | Version control system       | Hosting and collaboration   |
+| **Usage**    | Local or remote repositories | Cloud-based repositories    |
+| **Features** | Branching, merging, etc.     | Pull requests, issues, etc. |
+
+</details>
+
+### Explain the Git workflow.
+
+<details>
+<summary>View answer</summary>
+
+The Git workflow involves three main areas:
+
+1. **Working Directory**: Where you make changes to files.
+2. **Staging Area**: Where changes are staged using `git add`.
+3. **Repository**: Where changes are committed using `git commit`.
+
+#### **Workflow Steps**:
+
+1. Modify files in the working directory.
+2. Stage changes using `git add`.
+3. Commit changes to the repository using `git commit`.
+4. Push changes to a remote repository using `git push`.
+
+</details>
+
+### What is a Git branch, and why is it useful?
+
+<details>
+<summary>View answer</summary>
+
+A Git branch is a pointer to a specific commit in the repository. It allows developers to work on features, bug fixes, or experiments independently without affecting the main codebase.
+
+#### **Key Benefits**:
+
+1. **Isolation**: Work on features or fixes without impacting the main branch.
+2. **Collaboration**: Multiple developers can work on different branches simultaneously.
+3. **Versioning**: Easily switch between different versions of the code.
+
+#### **Common Commands**:
+
+- `git branch`: List branches or create a new branch.
+- `git checkout`: Switch to a branch.
+- `git merge`: Merge changes from one branch into another.
+
+</details>
+
+### What is a pull request, and how does it work?
+
+<details>
+<summary>View answer</summary>
+
+A pull request (PR) is a feature in platforms like GitHub, GitLab, and Bitbucket that allows developers to propose changes to a repository.
+
+#### **How It Works**:
+
+1. Create a branch and make changes.
+2. Push the branch to the remote repository.
+3. Open a pull request to merge the branch into the main branch.
+4. Reviewers can comment, approve, or request changes.
+5. Once approved, the branch is merged.
+
+#### **Key Benefits**:
+
+- Facilitates code reviews.
+- Ensures quality and consistency before merging changes.
+- Tracks discussions and feedback.
+
+</details>
+
+### What is the difference between `git merge` and `git rebase`?
+
+<details>
+<summary>View answer</summary>
+
+#### **Git Merge**:
+
+- Combines changes from one branch into another.
+- Creates a new merge commit.
+
+#### **Git Rebase**:
+
+- Reapplies commits from one branch onto another.
+- Does not create a merge commit; rewrites commit history.
+
+#### **Key Differences**:
+
+| Feature            | Merge                                | Rebase                |
+| ------------------ | ------------------------------------ | --------------------- |
+| **Commit History** | Preserves history with merge commits | Rewrites history      |
+| **Use Case**       | Collaborative workflows              | Linear commit history |
+
+</details>
+
+### How do you resolve merge conflicts in Git?
+
+<details>
+<summary>View answer</summary>
+
+#### **Steps to Resolve Merge Conflicts**:
+
+1. Identify conflicting files using `git status`.
+2. Open the conflicting files and resolve conflicts manually.
+   - Look for conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`).
+3. Stage the resolved files using `git add`.
+4. Commit the changes using `git commit`.
+
+#### **Tips**:
+
+- Use tools like VSCode, GitKraken, or Sourcetree for easier conflict resolution.
+- Communicate with team members to avoid conflicts.
+
+</details>
+
+### What is a Git tag, and how is it used?
+
+<details>
+<summary>View answer</summary>
+
+A Git tag is a reference to a specific commit, often used to mark release versions.
+
+#### **Types of Tags**:
+
+1. **Lightweight Tags**: Simple pointers to a commit.
+2. **Annotated Tags**: Include metadata like a message, author, and date.
+
+#### **Common Commands**:
+
+- `git tag <tagname>`: Create a lightweight tag.
+- `git tag -a <tagname> -m "message"`: Create an annotated tag.
+- `git push origin <tagname>`: Push a tag to the remote repository.
+
+</details>
+
+### What is CI/CD, and how does it integrate with Git?
+
+<details>
+<summary>View answer</summary>
+
+#### **CI/CD**:
+
+- **Continuous Integration (CI)**: Automatically builds and tests code changes.
+- **Continuous Deployment (CD)**: Automatically deploys code to production after passing tests.
+
+#### **Integration with Git**:
+
+1. Code changes are pushed to a Git repository.
+2. CI/CD pipelines are triggered automatically.
+3. Pipelines run tests, build the application, and deploy it if successful.
+
+#### **Popular CI/CD Tools**:
+
+- GitHub Actions
+- GitLab CI/CD
+- CircleCI
+- Jenkins
+
+</details>
+
+### What are Git submodules, and when would you use them?
+
+<details>
+<summary>View answer</summary>
+
+Git submodules allow you to include one Git repository inside another as a subdirectory.
+
+#### **Use Cases**:
+
+- Reusing shared libraries across multiple projects.
+- Managing dependencies as separate repositories.
+
+#### **Common Commands**:
+
+- `git submodule add <repository>`: Add a submodule.
+- `git submodule update`: Update submodules.
+- `git submodule init`: Initialize submodules.
+
+</details>
+
+### What is the purpose of `.gitignore`?
+
+<details>
+<summary>View answer</summary>
+
+The `.gitignore` file specifies files and directories that Git should ignore.
+
+#### **Common Use Cases**:
+
+- Ignoring build artifacts (e.g., `node_modules`, `dist`).
+- Ignoring sensitive files (e.g., `.env`).
+- Ignoring temporary files (e.g., `.DS_Store`, `*.log`).
+
+#### **Example**:
+
+```
+# Ignore node_modules
+node_modules/
+
+# Ignore environment files
+.env
+
+# Ignore log files
+*.log
+```
+
+</details>
+
+## Redux & Middleware
+
+### What is Redux, and why is it used?
+
+<details>
+<summary>View answer</summary>
+
+Redux is a predictable state management library for JavaScript applications. It helps manage the state of an application in a single, centralized store.
+
+#### **Key Features**:
+
+1. **Single Source of Truth**: The entire state of the application is stored in a single object.
+2. **Predictable State Changes**: State changes are made using pure functions called reducers.
+3. **Time-Travel Debugging**: Redux DevTools allow you to inspect and replay state changes.
+
+#### **Common Use Cases**:
+
+- Managing global state in large applications.
+- Sharing state between deeply nested components.
+- Debugging complex state transitions.
+
+</details>
+
+### What are the core principles of Redux?
+
+<details>
+<summary>View answer</summary>
+
+1. **Single Source of Truth**:
+
+   - The state of the application is stored in a single object.
+
+2. **State is Read-Only**:
+
+   - The only way to change the state is by dispatching an action.
+
+3. **Changes are Made with Pure Functions**:
+   - Reducers are pure functions that take the current state and an action as input and return a new state.
+
+</details>
+
+### What are actions in Redux?
+
+<details>
+<summary>View answer</summary>
+
+Actions are plain JavaScript objects that describe what happened in the application. They are the only way to send data to the Redux store.
+
+#### **Structure**:
+
+```javascript
+{
+  type: 'ACTION_TYPE',
+  payload: { key: 'value' }
+}
+```
+
+#### **Key Points**:
+
+- The `type` property is required and describes the action.
+- The `payload` property is optional and contains additional data.
+
+#### **Example**:
+
+```javascript
+const addTodo = (text) => ({
+  type: "ADD_TODO",
+  payload: { text },
+});
+```
+
+</details>
+
+### What are reducers in Redux?
+
+<details>
+<summary>View answer</summary>
+
+Reducers are pure functions that specify how the application's state should change in response to an action.
+
+#### **Structure**:
+
+```javascript
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "ACTION_TYPE":
+      return { ...state, key: action.payload };
+    default:
+      return state;
+  }
+};
+```
+
+#### **Key Points**:
+
+- Reducers take the current state and an action as input and return a new state.
+- They must be pure functions (no side effects).
+
+#### **Example**:
+
+```javascript
+const todosReducer = (state = [], action) => {
+  switch (action.type) {
+    case "ADD_TODO":
+      return [...state, action.payload];
+    default:
+      return state;
+  }
+};
+```
+
+</details>
+
+### What is the Redux store?
+
+<details>
+<summary>View answer</summary>
+
+The Redux store is an object that holds the application's state. It provides methods to:
+
+1. **Get the State**: `store.getState()`
+2. **Dispatch Actions**: `store.dispatch(action)`
+3. **Subscribe to Changes**: `store.subscribe(listener)`
+
+#### **Example**:
+
+```javascript
+import { createStore } from "redux";
+import rootReducer from "./reducers";
+
+const store = createStore(rootReducer);
+
+console.log(store.getState()); // Get the initial state
+store.dispatch({ type: "ACTION_TYPE" }); // Dispatch an action
+```
+
+</details>
+
+### What is middleware in Redux?
+
+<details>
+<summary>View answer</summary>
+
+Middleware in Redux is a function that sits between the dispatching of an action and the moment it reaches the reducer. It is used to extend Redux's capabilities.
+
+#### **Common Use Cases**:
+
+- Logging actions and state changes.
+- Handling asynchronous actions (e.g., API calls).
+- Error reporting.
+
+#### **Example**:
+
+```javascript
+const loggerMiddleware = (store) => (next) => (action) => {
+  console.log("Dispatching:", action);
+  const result = next(action);
+  console.log("Next State:", store.getState());
+  return result;
+};
+```
+
+</details>
+
+### What is redux-thunk, and how does it work?
+
+<details>
+<summary>View answer</summary>
+
+Redux Thunk is a middleware that allows you to write action creators that return a function instead of an action. This function can perform asynchronous operations and dispatch actions based on the result.
+
+#### **Example**:
+
+```javascript
+const fetchData = () => {
+  return async (dispatch) => {
+    dispatch({ type: "FETCH_START" });
+    try {
+      const data = await fetch("/api/data").then((res) => res.json());
+      dispatch({ type: "FETCH_SUCCESS", payload: data });
+    } catch (error) {
+      dispatch({ type: "FETCH_ERROR", payload: error });
+    }
+  };
+};
+```
+
+## Structural Coverage & Programming Fundamentals
+
+### What is code coverage, and why is it important?
+
+<details>
+<summary>View answer</summary>
+
+Code coverage is a metric that measures the percentage of code executed during testing. It helps identify untested parts of the codebase.
+
+#### **Types of Coverage**:
+
+1. **Statement Coverage**: Ensures every statement in the code is executed at least once.
+2. **Branch Coverage**: Ensures every branch (e.g., `if`/`else`) is executed.
+3. **Function Coverage**: Ensures every function is called.
+4. **Condition Coverage**: Ensures all boolean expressions are evaluated to both `true` and `false`.
+
+#### **Why It’s Important**:
+
+- Identifies untested code.
+- Improves code quality and reliability.
+- Reduces the risk of bugs in production.
+
+</details>
+
+### What is the difference between static and dynamic typing?
+
+<details>
+<summary>View answer</summary>
+
+#### **Static Typing**:
+
+- Types are checked at compile time.
+- Example: TypeScript, Java.
+
+#### **Dynamic Typing**:
+
+- Types are checked at runtime.
+- Example: JavaScript, Python.
+
+#### **Key Differences**:
+
+| Feature          | Static Typing              | Dynamic Typing          |
+| ---------------- | -------------------------- | ----------------------- |
+| **Error Timing** | Compile-time               | Runtime                 |
+| **Flexibility**  | Less flexible              | More flexible           |
+| **Performance**  | Faster (no runtime checks) | Slower (runtime checks) |
+
+</details>
+
+### What is the difference between imperative and declarative programming?
+
+<details>
+<summary>View answer</summary>
+
+#### **Imperative Programming**:
+
+- Focuses on **how** to achieve a task.
+- Example: Writing loops to iterate over data.
+
+#### **Declarative Programming**:
+
+- Focuses on **what** to achieve.
+- Example: Using `map` or `filter` to process data.
+
+#### **Key Differences**:
+
+| Feature      | Imperative          | Declarative            |
+| ------------ | ------------------- | ---------------------- |
+| **Focus**    | How to do it        | What to do             |
+| **Examples** | Loops, conditionals | Functional programming |
+
+</details>
+
+## **React Basics**
+
+### **1. What is React, and why is it used?**
+
+React is a JavaScript library for building user interfaces. It is maintained by Facebook and focuses on creating reusable UI components.
+
+#### **Key Features**:
+
+1. **Component-Based**: Build encapsulated components that manage their own state.
+2. **Virtual DOM**: Efficiently updates and renders components.
+3. **Declarative**: Describe what the UI should look like, and React handles the updates.
+
+#### **Why Use React?**:
+
+- Simplifies UI development.
+- Encourages reusable and maintainable code.
+- Large community and ecosystem.
+
+---
+
+### **2. What is JSX?**
+
+JSX (JavaScript XML) is a syntax extension for JavaScript that allows you to write HTML-like code in React.
+
+#### **Example**:
+
+```jsx
+const element = <h1>Hello, world!</h1>;
+```
+
+#### **Key Points**:
+
+- JSX is not required but makes React code more readable.
+- JSX is compiled to `React.createElement()` calls.
+
+---
+
+### **3. What are props in React?**
+
+Props (short for "properties") are read-only inputs passed to React components.
+
+#### **Example**:
+
+```jsx
+function Greeting(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+
+<Greeting name="Alice" />;
+```
+
+#### **Key Points**:
+
+- Props are immutable.
+- Used to pass data from parent to child components.
+
+---
+
+### **4. What is state in React?**
+
+State is a built-in object in React components that holds data that may change over time.
+
+#### **Example**:
+
+```jsx
+class Counter extends React.Component {
+  state = { count: 0 };
+
+  increment = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  render() {
+    return (
+      <div>
+        <p>Count: {this.state.count}</p>
+        <button onClick={this.increment}>Increment</button>
+      </div>
+    );
+  }
+}
+```
+
+#### **Key Points**:
+
+- State is mutable and managed within the component.
+- Use `setState` to update state in class components or `useState` in functional components.
+
+---
+
+### **5. What is the difference between functional and class components?**
+
+#### **Functional Components**:
+
+- Simple JavaScript functions.
+- Use hooks (e.g., `useState`, `useEffect`) for state and lifecycle methods.
+
+#### **Class Components**:
+
+- ES6 classes that extend `React.Component`.
+- Use `state` and lifecycle methods like `componentDidMount`.
+
+#### **Key Differences**:
+
+| Feature       | Functional Components | Class Components  |
+| ------------- | --------------------- | ----------------- |
+| **Syntax**    | Functions             | Classes           |
+| **State**     | Hooks                 | `this.state`      |
+| **Lifecycle** | Hooks                 | Lifecycle methods |
+
+---
+
+## **React Native Basics**
+
+### **1. What is React Native, and why is it used?**
+
+React Native is a framework for building mobile applications using JavaScript and React. It allows developers to create apps for iOS and Android using a single codebase.
+
+#### **Key Features**:
+
+1. **Cross-Platform**: Write once, run on both iOS and Android.
+2. **Native Components**: Uses native UI components for better performance.
+3. **Hot Reloading**: See changes instantly during development.
+
+#### **Why Use React Native?**:
+
+- Faster development with a single codebase.
+- Access to native device features.
+- Large community and ecosystem.
+
+---
+
+### **2. What are the differences between ReactJS and React Native?**
+
+#### **ReactJS**:
+
+- A JavaScript library for building web applications.
+- Uses **HTML** and **CSS** for rendering UI.
+- Runs in the browser.
+
+#### **React Native**:
+
+- A framework for building mobile applications.
+- Uses **native components** instead of HTML elements.
+- Runs on mobile platforms (iOS and Android).
+
+#### **Key Differences**:
+
+| Feature        | ReactJS        | React Native                    |
+| -------------- | -------------- | ------------------------------- |
+| **Platform**   | Web            | Mobile                          |
+| **Rendering**  | DOM            | Native components               |
+| **Styling**    | CSS            | Stylesheets (similar to CSS)    |
+| **Navigation** | React Router   | React Navigation or Native APIs |
+| **Animation**  | CSS animations | Animated API                    |
+
+---
+
+### **3. What is the React Native bridge, and how does it work?**
+
+The React Native bridge is a communication layer between JavaScript and native code (iOS/Android). It allows JavaScript to call native APIs and vice versa.
+
+#### **How It Works**:
+
+1. JavaScript code sends messages to the bridge.
+2. The bridge translates these messages into native code.
+3. Native code executes the operation and sends the result back to JavaScript.
+
+#### **Example**:
+
+- Accessing the camera or GPS requires native modules via the bridge.
+
+#### **Key Points**:
+
+- The bridge enables React Native to use native features.
+- It can introduce performance overhead for frequent communication.
+
+---
+
+### **4. What are the advantages of using TypeScript in React Native?**
+
+#### **Advantages of TypeScript**:
+
+1. **Type Safety**: Prevents runtime errors by catching type errors during development.
+2. **Improved Code Readability**: Makes code easier to understand with explicit types.
+3. **Better Tooling**: Provides autocompletion and better IDE support.
+4. **Refactoring**: Simplifies refactoring with type checking.
+5. **Community Support**: Many React Native libraries support TypeScript.
+
+#### **Example**:
+
+```typescript
+type Props = {
+  name: string;
+  age: number;
+};
+
+const Greeting: React.FC<Props> = ({ name, age }) => {
+  return (
+    <Text>
+      Hello, {name}. You are {age} years old.
+    </Text>
+  );
+};
+```
+
+---
+
+### **5. How does React Native handle UI updates differently from ReactJS?**
+
+#### **ReactJS**:
+
+- Updates the DOM using a virtual DOM for efficient rendering.
+
+#### **React Native**:
+
+- Updates the UI by communicating with native components via the bridge.
+- Uses a shadow tree to calculate layout changes.
+
+#### **Key Points**:
+
+- React Native does not use a browser DOM.
+- UI updates are optimized for mobile performance.
+
+---
